@@ -10,8 +10,8 @@ init: ## Start a new development environment
 	cp .env.example .env
 	$(MAKE) dev
 	@sleep 10
-	$(MAKE) keys
 	$(MAKE) install
+	$(MAKE) keys
 	$(MAKE) migrate
 
 ##@ Docker actions

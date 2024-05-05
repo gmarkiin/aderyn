@@ -11,9 +11,6 @@ volumes:
   # MySQL volume
   mysql_data:
     driver: local
-  # Redis volume
-  redis_data:
-    driver: local
 
 # Services
 services:
@@ -44,10 +41,8 @@ services:
       - internal
     depends_on:
       - mysql
-      - redis
     links:
       - mysql
-      - redis
     volumes:
       - .:/var/www/app
     working_dir: /var/www/app
@@ -60,15 +55,3 @@ services:
       - 9090
     ports:
       - "8080:80"
-
-  # Redis
-  redis:
-    image: redis:6
-    container_name: redis
-    command: --append only yes
-    networks:
-      - internal
-    volumes:
-      - redis_data:/data
-    ports:
-      - "6379:6379"
