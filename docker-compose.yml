@@ -16,7 +16,6 @@ services:
       - internal
     volumes:
       - .:/var/www/app
-      - .docker/nginx/custom.conf:/opt/docker/etc/nginx/conf.d
     working_dir: /var/www/app
     environment:
       - WEB_DOCUMENT_ROOT=/var/www/app/public
